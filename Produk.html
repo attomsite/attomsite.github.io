@@ -1,0 +1,741 @@
+  <a href="index.html" style="text-decoration: none; color: #fff; display: block; background-color: #FF0000; height: 50px; width: 100%; position: fixed; top: 0; left: 0;"><p>< Home</p></a>
+<p>-</p>
+°
+<html lang="en">
+ <head>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryDropdown = document.getElementById('categoryDropdown');
+    const produkCards = document.querySelectorAll('.produk-card');
+
+    categoryDropdown.addEventListener('change', function() {
+        const selectedCategory = this.value;
+        produkCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+
+</script> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+  <title>        invest
+    </title> 
+  <link rel="preconnect" href="https://fonts.bunny.net"> 
+  <link href="https://fonts.bunny.net/css?family=figtree:400,600&amp;display=swap" rel="stylesheet"> 
+ <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+  <style>
+        /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: Figtree, sans-serif;
+            font-feature-settings: normal
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit;
+            background: #ebebeb
+        }
+
+       
+       @media only screen and (min-width: 651px) and (max-width: 2800px) {
+          .content{
+        width: 22em;
+
+        margin: auto;
+       }
+   .info_user_head {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    width: 21em;
+    margin: auto;
+    background: #725191;
+    color: whitesmoke;
+    padding: 0px 10px;
+    border-radius: 15px;
+    position: absolute;
+    margin-top: -45px;
+    margin-left: 7px;
+    height: 12vh;
+}
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    z-index: 1059;
+    width: 22em;
+    background: white;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+        }
+        
+        
+        @media only screen and (max-width: 650px) {
+          .content{
+        width: -webkit-fill-available;
+
+        margin: auto;
+        .info_user_head {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            width: -webkit-fill-available;
+            margin: 10px ;
+            background: #725191;
+            color: whitesmoke;
+            padding: 0px 10px;
+            border-radius: 15px;
+            position: absolute;
+            margin-top: -45px;
+            /*left: 2vh;*/
+            height: 12vh;
+           
+        }
+       }
+         footer {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    z-index: 1059;
+    width: -webkit-fill-available;
+    background: white;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+        }
+       .notify.fixed.inset-0.flex.items-end.justify-end.px-4.py-6.pointer-events-none.sm\:p-6.sm\:items-start.sm\:justify-end {
+    justify-content: center;
+    width: 22em;
+}
+.pointer-events-auto.w-full.max-w-sm.overflow-hidden.shadow-lg.rounded-lg.border-l-4.bg-white.border-green-500 {
+    width: 20em;
+}
+    </style> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://sadjaya.company/assets/fontawesome-free-6.1.1-web/css/all.css"> 
+  <link rel="stylesheet" type="text/css" href="https://sadjaya.company/vendor/mckenziearts/laravel-notify/dist/notify.css">
+ </head> 
+ <body class="antialiased" style="background-color: #ebebeb;"> 
+  <div class="content"> 
+   <style>
+    .header {
+        background-color: #475461;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+    .header a {
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        left: 10px; 
+        top: 15px; 
+    }
+
+    .filter-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f8f8f8;
+    }
+    .filter-container span, .filter-container select {
+        font-size: 0.9em; 
+    }
+    .filter-container select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .produk-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        padding: 0 5px; 
+    }
+    .produk-card {
+        display: flex;
+        align-items: center;
+        background-color: #FFF;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .produk-card img {
+        width: 110px; 
+        height: 110px; 
+        object-fit: cover;
+        margin-right: 15px;
+        margin-left:15px;
+    }
+    .produk-card-details {
+        padding: 5px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+    }
+    .produk-card-details h5 {
+        color: #1f2963; 
+        font-weight: bold; 
+        font-size: 0.9em; 
+        margin: 0 0 5px 0; 
+    }
+    .produk-card-details .info {
+        font-size: 0.8em;
+        color: #666;
+        margin: 2px 0; 
+    }
+    .produk-card-details .harga {
+        font-size: 0.9em;
+        margin-top: auto;
+        background-color: #1f2963;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        font-weight: bold;
+        border-top-left-radius: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+        .produk-list {
+            gap: 5px;
+        }
+    }
+</style> 
+   <div class="header"> 
+    <a href="">
+<i class="ri-arrow-go-back-lin"></i></a> 
+    <span>Produk Investasi</span> 
+   </div> 
+   <div class="filter-container"> 
+  <button><h4>IDR 0.00</h4></button>  
+    <select id="categoryDropdown"> <option value="all">Semua Kategori</option> <option value="3">saham harian</option> </select> 
+    
+    
+      
+   </div> 
+   <div class="produk-list"> 
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/NN0HzCX/download-13.jpg"> 
+     <div class="produk-card-details"> 
+     
+      <h4>Produk biasa 1♨</h4>
+      <h5>saham pengembalian 25%</h5> 
+      <div class="info">
+       Durasi: 10 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp12.500.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp200.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp80.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/Qbm0TPT/images-3.jpg" alt="saham pengembalian 25%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk biasa 2♨</h4>
+      <h5>saham pengembalian 25%</h5> 
+      <div class="info">
+       Durasi: 10 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp25.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp250.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp100.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/jrXbfW4/download-17.jpg" alt="saham pengembalian 30%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk biasa 3♨</h4>
+      <h5>saham pengembalian 25%</h5> 
+      <div class="info">
+       Durasi: 10 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp75.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp750.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp250.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/rvh0fFz/download-16.jpg" alt="saham pengembalian 30%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk biasa 4♨</h4>
+      <h5>saham pengembalian 22%</h5> 
+      <div class="info">
+       Durasi: 10 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp150.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp1.500.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp500.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/Z1mPVkh/download-15.jpg" alt="saham pengembalian 35%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk biasa 5♨</h4>
+      <h5>saham pengembalian 35%</h5> 
+      <div class="info">
+       Durasi: 10 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp350.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp3.500.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp1.000.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/JcjvKWD/download-14.jpg" alt="saham pengembalian 40%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk biasa 6♨</h4>
+      <h5>saham pengembalian 36%</h5> 
+      <div class="info">
+       Durasi: 20 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp1.000.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp20.000.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp2.500.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/s22hKKr/images-3.jpg" alt="saham pengembalian 50%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk biasa 7♨</h4>
+      <h5>saham pengembalian 50%</h5> 
+      <div class="info">
+       Durasi: 20 / hari
+      </div> 
+      <div class="info">
+       Pendapatan / hari: Rp2.500.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp50.000.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp6.000.000.00
+      </div> 
+     </div> 
+    </div> 
+    <p></p>
+    <p></p>
+  <p></p>
+  <button><h4>Produk Vip Hanya dapat dibeli ketika salah satu Produk biasa aktif</h4></button>
+   
+   <div class="produk-list"> 
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/NN0HzCX/download-13.jpg"> 
+     <div class="produk-card-details"> 
+     
+      <h4>Produk Vip 1🏆</h4>
+      <h5>saham pengembalian 75%</h5> 
+      <div class="info">
+       Durasi: 10 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp12.500.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp200.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp80.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/Qbm0TPT/images-3.jpg" alt="saham pengembalian 25%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk Vip 2🏆</h4>
+      <h5>saham pengembalian 75%</h5> 
+      <div class="info">
+       Durasi: 10 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp25.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp250.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp100.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/jrXbfW4/download-17.jpg" alt="saham pengembalian 30%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk Vip 3🏆</h4>
+      <h5>saham pengembalian 75%</h5> 
+      <div class="info">
+       Durasi: 10 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp75.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp750.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp250.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/rvh0fFz/download-16.jpg" alt="saham pengembalian 30%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk Vip 4🏆</h4>
+      <h5>saham pengembalian 72%</h5> 
+      <div class="info">
+       Durasi: 10 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp150.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp1.500.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp500.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/Z1mPVkh/download-15.jpg" alt="saham pengembalian 35%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk Vip 5🏆</h4>
+      <h5>saham pengembalian 75%</h5> 
+      <div class="info">
+       Durasi: 10 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp350.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp3.500.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp1.000.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/JcjvKWD/download-14.jpg" alt="saham pengembalian 40%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk Vip 6🏆</h4>
+      <h5>saham pengembalian 76%</h5> 
+      <div class="info">
+       Durasi: 20 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp1.000.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp20.000.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp2.500.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    <div class="produk-card" data-category="3" onclick="location.href='Deposit.html';"> 
+     <img src="https://i.ibb.co.com/s22hKKr/images-3.jpg" alt="saham pengembalian 50%"> 
+     <div class="produk-card-details"> 
+      <h4>Produk Vip 7🏆</h4>
+      <h5>saham pengembalian 80%</h5> 
+      <div class="info">
+       Durasi: 20 / jam
+      </div> 
+      <div class="info">
+       Pendapatan / jam: Rp2.500.000.00
+      </div> 
+      <div class="info">
+       Total pendapatan: Rp50.000.000.00
+      </div> 
+      <div class="harga">
+       Harga: Rp6.000.000.00
+      </div> 
+     </div> 
+    </div> 
+    
+    
+    
+  
+   </div> 
+   <style>
+    .bootom_footer{
+    height: 4vh;
+}
+    footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5em 0; 
+        background: #ffffff;
+        border-top: 10px solid #ebebeb; 
+    }
+    footer div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    footer div a {
+        text-decoration: none;
+        color: #91fa75; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .icon_footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 3px; 
+        width: 40px;
+        height: 40px; 
+        transition: all 0.2s ease-in-out;
+    }
+    .icon_footer img {
+        max-width: 100%;
+        max-height: 100%;
+        border: none;
+    }
+    .icon_footer i {
+        font-size: 20px; 
+        color: #d5d5d5; 
+    }
+    .text {
+        font-size: .65em; 
+        font-weight: 700;
+        letter-spacing: 1px;;
+        margin-top: 2px; 
+        transition: color 0.2s ease-in-out;
+    }
+    footer div a, footer div a:hover, footer div a:focus {
+    text-decoration: none; 
+    color: #475461; 
+}
+
+    footer div a:active .icon_footer,
+    footer div a.active .icon_footer {
+        transform: translateY(-2px);
+        background-color: #475461; 
+    }
+    footer div a:active .icon_footer i,
+    footer div a.active .icon_footer i
+    {
+        color: white; 
+    }
+    footer div a:active .text,
+    footer div a.active .text {
+        color :#475461;
+    }
+</style> 
+   <div class="bootom_footer"></div> 
+   <div class="bootom_footer"></div> 
+   <footer> 
+    
+    </div> 
+   </footer> 
+   <style>
+   
+        .modal {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+
+        .wrap_modals{
+            width: 21em;
+        }
+        .head_inbox img {
+            width: 135px;
+        }
+        .head_inbox{
+            display: flex;
+            justify-content: center;
+        }
+        .body_inbox p {
+    margin: 2vh 0vh;
+}
+
+.body_inbox {
+    font-size: 0.8em;
+    line-height: 3vh;
+    border-bottom: 1px solid #ebebeb;
+}
+.footer_inbox {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+}
+.icon_inbox a {
+    text-decoration: none;
+    color: white;
+    background: #00800082;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    column-gap: 5px;
+
+}
+div#close {
+    background: #6495edc4;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+     </style> 
+   <script>
+            $('#close').click(function(){
+                $('#modal').css('display', 'none');
+            })
+        </script> 
+   <div id="laravel-notify"> 
+    <script>
+        var notify = {
+            timeout: "3000",
+        }
+    </script> 
+   </div> 
+  </div> 
+ </body>
+</html>
